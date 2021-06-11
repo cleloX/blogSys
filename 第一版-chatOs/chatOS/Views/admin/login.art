@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/base.css">
+</head>
+
+<body>
+    <div class="login-body">
+        <div class="login-container">
+            <h4 class="title">博客管理员登录</h4>
+            <div class="login">
+                <form action="/admin/adminLogin" method="post" id="loginForm">
+                    <div class="form-group">
+                        <label>邮件</label>
+                        <input name="email" type="text" class="form-control" placeholder="请输入邮件地址">
+                    </div>
+                    <div class="form-group">
+                        <label>密码</label>
+                        <input name="password" type="password" class="form-control" placeholder="请输入密码">
+                    </div>
+                    <button type="submit" class="btn btn-primary">登录</button>
+                </form>
+            </div>
+            <div class="tips"></div>
+        </div>
+    </div>
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+<!--    <script src="../../public/js/common.js"></script>-->
+    <script type="text/javascript">
+        // 为表单添加提交事件
+        $('#loginForm').on('submit', function () {
+            // 获取到表单中用户输入的内容
+          //
+          // let arr = $(this).serializeArray();//为一个数组对象    其中$(this)指的是表单对象'#loginForm
+          // let result0 = {};
+          // arr.forEach((item) => {  //foreach方法循环
+          //   result[item.name] = item.value;//相当于result.email
+          // })
+          //
+
+          //方法封装，放到src="../../public/admin/js/common.js"中
+          //得到表单中内容，数组[{name:"",value:"指的是输入值"},{passsword:"",value:""}]
+            var result = serializeToJson($(this))
+            // 如果用户没有输入邮件地址的话
+            if (result.email.trim().length == 0) {//trim()方法是去除字符创两边的空格
+                alert('请输入邮件地址');
+                // 阻止程序向下执行
+                return false;
+            }
+            // 如果用户没有输入密码
+            if (result.password.trim().length == 0) {
+                alert('请输入密码')
+                // 阻止程序向下执行
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>

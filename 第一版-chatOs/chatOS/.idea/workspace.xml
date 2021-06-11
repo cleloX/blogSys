@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8ce9b593-ac38-480c-b5f5-2270a5c847b9" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/addArticle.art" beforeDir="false" afterPath="$PROJECT_DIR$/Views/addArticle.art" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/admin/article-edit.art" beforeDir="false" afterPath="$PROJECT_DIR$/Views/admin/article-edit.art" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/admin/user-edit.art" beforeDir="false" afterPath="$PROJECT_DIR$/Views/admin/user-edit.art" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/admin/user.art" beforeDir="false" afterPath="$PROJECT_DIR$/Views/admin/user.art" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/articleDetail.art" beforeDir="false" afterPath="$PROJECT_DIR$/Views/articleDetail.art" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/index.art" beforeDir="false" afterPath="$PROJECT_DIR$/Views/index.art" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/login.art" beforeDir="false" afterPath="$PROJECT_DIR$/Views/login.art" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/layui.mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/layui.mobile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/normalize.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/normalize.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/prism.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/prism.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/404/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/arclist/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/banner/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/baoman/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/face/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/icon/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/snow/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/ckeditor5/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ckeditor5/ckeditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/respond.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/respond.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/lay/modules/layedit.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/lay/modules/layedit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/lay/modules/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/lay/modules/table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/layui.all.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/layui.all.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/新建文本文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/新建文本文档.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+        <option value="tsconfig.json" />
+        <option value="CSS File" />
+        <option value="art-template" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1XhGmWg1h9IoUh2V77ceD5euCji" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\76594\Desktop\chatOs\chatOS\Views\admin" />
+      <recent name="C:\Users\76594\Desktop\chatOs\chatOS\Views\addmin" />
+      <recent name="C:\Users\76594\Desktop\chatOs\chatOS\Views" />
+      <recent name="C:\Users\76594\Desktop\chatOs\chatOS\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\76594\Desktop\chatOs\chatOS\Views\admin" />
+      <recent name="C:\Users\76594\Desktop\chatOS\public\js" />
+      <recent name="C:\Users\76594\Desktop\chatOS\Views" />
+      <recent name="C:\Users\76594\Desktop\chatOS\public\css" />
+      <recent name="C:\Users\76594\Desktop\前端" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8ce9b593-ac38-480c-b5f5-2270a5c847b9" name="默认更改列表" comment="" />
+      <created>1571659298755</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571659298755</updated>
+      <workItem from="1571659302120" duration="3532000" />
+      <workItem from="1571663203349" duration="2838000" />
+      <workItem from="1571818349064" duration="20539000" />
+      <workItem from="1572147555116" duration="13703000" />
+      <workItem from="1572172852664" duration="19144000" />
+      <workItem from="1572344712017" duration="16802000" />
+      <workItem from="1572416541331" duration="27111000" />
+      <workItem from="1572534126296" duration="14718000" />
+      <workItem from="1572591890694" duration="4844000" />
+      <workItem from="1572665762759" duration="20294000" />
+      <workItem from="1573726366477" duration="1764000" />
+      <workItem from="1574500010796" duration="220000" />
+      <workItem from="1575555704231" duration="3241000" />
+      <workItem from="1575704077387" duration="2920000" />
+      <workItem from="1575775425786" duration="1370000" />
+      <workItem from="1575797264386" duration="235000" />
+      <workItem from="1576246228986" duration="599000" />
+      <workItem from="1577454649370" duration="2791000" />
+      <workItem from="1577466739337" duration="1834000" />
+      <workItem from="1578365894124" duration="33838000" />
+      <workItem from="1579058172444" duration="15289000" />
+      <workItem from="1579150644839" duration="5755000" />
+      <workItem from="1579589832213" duration="6170000" />
+      <workItem from="1580371657768" duration="613000" />
+      <workItem from="1580877600400" duration="8988000" />
+      <workItem from="1581491074499" duration="28000" />
+      <workItem from="1582713966830" duration="758000" />
+      <workItem from="1582861061821" duration="6060000" />
+      <workItem from="1583051237502" duration="1234000" />
+      <workItem from="1584874133074" duration="5033000" />
+      <workItem from="1586265252316" duration="234000" />
+      <workItem from="1586424884117" duration="600000" />
+      <workItem from="1586442336066" duration="662000" />
+      <workItem from="1594636044584" duration="1163000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="609" y="218" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584874606037">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="609" y="218" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1474.864@62.0.1474.864" timestamp="1584874606037" />
+    <state x="308" y="0" key="SettingsEditor" timestamp="1584874612149">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="308" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1583217926251" />
+    <state x="308" y="0" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1584874612149" />
+  </component>
+</project>

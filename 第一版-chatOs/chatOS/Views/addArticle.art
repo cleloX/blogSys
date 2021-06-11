@@ -1,0 +1,135 @@
+<html>
+
+<head>
+    <title>发布文章</title>
+    <link rel="stylesheet" href="/public/css/layui.css">
+    <link rel="stylesheet" href="/public/css/prism.css">
+    <script src="/public/layui.js"></script>
+   <script src="/public/js/prism.js"></script>
+    <script type="text/javascript" src="/public/js/jquery-3.2.1.min.js"></script>
+    <script>
+      window.onload = function () {
+        // $(document).ready(function(){
+        //   var doc_pre = $("#post_content pre");
+        //   doc_pre.each(function(){
+        //     var class_val = $(this).attr('class');
+        //     var class_arr = new Array();
+        //     // let class_arr = [];
+        //     class_arr = class_val.split(';');
+        //     class_arr = class_arr['0'].split(':');
+        //     var lan_class = 'language-'+class_arr['1'];
+        //     var pre_content = '<code class="'+lan_class+'">'+$(this).html()+'</code>';
+        //     $(this).html(pre_content);
+        //     $(this).attr("class",'line-numbers '+lan_class);
+        //   });
+        // });
+
+        // var $codepre = $("pre[class]");
+        // if($codepre.length>0){
+        //   for(var i = 0;i<$codepre.length;i++){
+        //     var item = $codepre.eq(i);
+        //     var language = "";
+        //     item.attr("class").replace(/brush:([^;]+)/,function(a,b){
+        //       language = b;
+        //     });
+        //     if(language){
+        //       var codehtml = item.html();
+        //       var code = $("<code>");
+        //       code.attr("class","language-"+language);
+        //       code.html(codehtml);
+        //       item.html(code);
+        //       Prism.highlightElement(code[0]);
+        //     }
+        //   }
+        // }
+      }
+    </script>
+</head>
+
+<body>
+    <!-- https://www.layui.com/doc/modules/layedit.html  layui编辑器地址 -->
+    <div style="margin-left:100px;margin-top:30px;margin-bottom: 20px;">欢迎 <span style="font-size:14px;color:red;font-weight:bolder;"><%=userInfoName%> </span> &nbsp;&nbsp; <a href="./index" class="backHome">返回首页</a><button style="background-color: #01AAED;float: right;margin-right: 10px;" class="layui-btn" id="btnLogOut">退出登录</button></div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" id="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">文章内容</label>
+        <div class="layui-input-block">
+            <textarea placeholder="请输入内容" class="layui-textarea" id="content"></textarea>
+        </div>
+    </div>
+    <div style="text-align: right;margin-right: 200px;"><button class="layui-btn layui-btn-normal layui-btn-lg" id="addArticeInfo">发布文章</button> <span id="errMsg" style="font-size:14px;color:red;font-weight:bolder"></span></div>
+
+    <script>
+        var index; // 编号，该编辑器的编号。
+        layui.use('layedit', function() {
+            var layedit = layui.layedit;
+            index = layedit.build('content'); //建立编辑器
+        });
+    </script>
+
+    <script>
+        $(function() {
+            $('#btnLogOut').click(function() {
+
+                    $.post('/userLoginLoinOut', {}, function(data) {
+                        if (data.flag === 'yes') {
+                            window.location.href = '/login'
+                        }
+                    })
+                })
+                // 发布文章.
+            $('#addArticeInfo').click(function() {
+                addArticle();
+            })
+
+        })
+        function timeFormat(date) {
+          this.date = date;
+          this.year = this.date.getFullYear();
+          this.month = this.date.getMonth()+1;
+          this.day = this.date.getDate();
+          this.hour = this.date.getHours();
+          this.minute = this.date.getMinutes();
+          this.second = this.date.getSeconds();
+         console.log(date)
+          return this.year+'-'+this.month+'-'+this.day + ' ' + this.hour + ':' + this.minute + ':' + this.second;
+
+        }
+        // 发布文章
+        function addArticle() {
+          let date = new Date();
+          // alert(date)
+          let _time = timeFormat(date);
+          // alert(_time)
+            var title = $('#title').val();
+            var layedit = layui.layedit; //获取编辑器对象
+            var content = layedit.getContent(index); //根据编号获取了编辑器的内容
+            $.post('/addArticle', {
+                time:_time,
+                title: title,
+                content: content
+            }, function(data) {
+                if (data.flag === 'no') {
+                    $('#errMsg').text(data.msg)
+                } else {
+                    // 跳转到文章详细页面，展示一下用户刚添加完的文章。
+
+                    window.location.href = '/showArticleDetail?id=' + data.aid;
+                }
+
+            })
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>

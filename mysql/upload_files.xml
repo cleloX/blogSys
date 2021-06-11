@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="yes"?>
+<RECORDS>
+<RECORD>
+<file_id>27</file_id>
+<author>admin</author>
+<file_name>admin</file_name>
+<url>http://localhost:8081/image/uploads/admin.zip</url>
+<extension>zip</extension>
+</RECORD>
+<RECORD>
+<file_id>28</file_id>
+<author>admin</author>
+<file_name>padmin</file_name>
+<url>http://localhost:8081/image/uploads/padmin.zip</url>
+<extension>zip</extension>
+</RECORD>
+</RECORDS>

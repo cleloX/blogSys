@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="/public/style/register-login.css">
+    <script type="text/javascript" src="/public/js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div id="box"></div>
+    <div class="cent-box">
+        <div class="cent-box-header">
+            <h1 class="main-title hide">chatOS</h1>
+            <h2 class="sub-title">爱生活爱分享 - Thousands Find</h2>
+        </div>
+
+        <div class="cont-main clearfix">
+            <div class="index-tab">
+                <div class="index-slide-nav">
+                    <a href="/login" class="active">登录</a>
+                    <a href="/">注册</a>
+                    <div class="slide-bar"></div>
+                </div>
+            </div>
+
+            <div class="login form">
+                <div class="group">
+                    <div class="group-ipt email">
+                        <input type="text" name="email" id="email" autocomplete="off" class="ipt" placeholder="邮箱地址">
+                    </div>
+                    <div class="group-ipt password">
+                        <input type="password" name="password" id="password" class="ipt" placeholder="输入您的登录密码">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="button">
+                <button id="btnLogin" class="button-style">登录</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+
+
+    </div>
+    <script>
+        $(function() {
+            $('#btnLogin').click(function() {
+                var userEmail = $('#email').val();
+                var userPwd = $('#password').val();
+                $.post('/userLogin', {
+                    email: userEmail,
+                    pwd: userPwd
+                }, function(data) {
+                    if (data.flag === 'no') {
+                        alert(data.msg);
+                    } else {
+                        //alert(data.msg);
+                        // 登录成功后，跳转到文章的发布页面。
+                        window.location.href = '/index';
+
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

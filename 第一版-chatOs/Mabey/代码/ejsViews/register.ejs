@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>注册 - 知乎 - Thousands Find</title>
+    <link rel="stylesheet" type="text/css" href="/public/style/register-login.css">
+    <script type="text/javascript" src="/public/js/jquery-3.2.1.min.js"></script>
+
+</head>
+
+<body>
+    <div id="box"></div>
+    <div class="cent-box register-box">
+        <div class="cent-box-header">
+            <h1 class="main-title hide">知乎</h1>
+            <h2 class="sub-title">生活热爱分享 - Thousands Find</h2>
+        </div>
+        <div class="cont-main clearfix">
+            <div class="index-tab">
+                <div class="index-slide-nav">
+                    <a href="/login">登录</a>
+                    <a href="#" class="active">注册</a>
+                    <div class="slide-bar slide-bar1"></div>
+                </div>
+            </div>
+
+            <div class="login form">
+                <div class="group">
+                    <div class="group-ipt email">
+                        <input type="text" name="userEmail" id="email" class="ipt" placeholder="邮箱地址" autocomplete="off"> <span id="showMsg" style="font-size:14px;color:red;font-weight:bolder"></span>
+                    </div>
+                    <div class="group-ipt user">
+                        <input type="text" name="userName" id="user" class="ipt" placeholder="选择一个用户名" autocomplete="off">
+                    </div>
+                    <div class="group-ipt password">
+                        <input type="password" name="userPwd" id="password" class="ipt" placeholder="设置登录密码" autocomplete="off">
+                    </div>
+                    <div class="group-ipt password1">
+                        <input type="password" name="password1" id="password1" class="ipt" placeholder="重复密码" autocomplete="off">
+                    </div>
+
+                </div>
+            </div>
+            <div class="button">
+                <button id="btnRegister" class="button-style">注册</button>
+                <span style="font-size:14px;color:red;font-weight:300" id="errMsg"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>知乎 - Thousands Find</p>
+    </div>
+    <script>
+        $(function() {
+            // 可以找到输入邮箱的框，给其添加一个失去焦点的事件，如果该事件发生了，表明我们可以获取用户输入的邮箱信息。
+            $('#email').blur(function() {
+                    // 获取邮箱.
+                    var email = $('#email').val(); //获取邮箱信息
+                    if (email === '') {
+                        // 将错误信息写到span标签中。
+                        $('#showMsg').text('邮箱不能为空!')
+                    } else {
+                        // 发送到服务器，进行校验.
+                        $.post('/checkEmail', {
+                            userEmail: email
+                        }, function(data) {
+                            $('#showMsg').text(''); // 给span清除值。
+                            $('#showMsg').text(data.msg);
+                        })
+                    }
+                })
+                // 找到注册的按钮，添加绑定的单击事件。
+            $('#btnRegister').click(function() {
+                var userEmail = $('#email').val();
+                var userName = $('#user').val();
+                var userPwd = $('#password').val();
+                $.post('/register', {
+                    name: userName,
+                    pwd: userPwd,
+                    email: userEmail
+                }, function(data) {
+                    if (data.flag === 'no') {
+                        $('#errMsg').text(data.msg);
+                    } else {
+                        // 跳转到登录页面，完成登录。
+                        //这个跳转也是get.
+                        window.location.href = '/login';
+                    }
+                })
+
+            })
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>

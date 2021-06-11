@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <style>
+        .ja{
+            width:80px;
+            height: 80px;
+        }
+        .adg{
+            display: inline-block;
+        }
+        .addImg{
+            padding: 5px;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            position: relative;
+        }
+        .addImg .img1{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 10px;
+            top: 5px;
+        }
+        .ca{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<input type="file" multiple onchange="getUploadImg(this)" accept="image/gif, image/jpeg, image/png" id="upload" >
+<div id="la" style="height: 200px;">
+    <!--<div class="addImg">-->
+        <!--<img class="img1" src="img/point.png" height="30" width="30" style="display: none"/>-->
+        <!--<img class="kkd" src="img/logo.jpg" height="200" width="200"/>-->
+    <!--</div>-->
+
+</div>
+<button onclick="ad()">测试</button>
+<a href="" class="upload"></a>
+<script>
+
+    var ip = "http://localhost:8085/";
+
+    let KK = [];
+    let ImgUrl = null;
+    function getUploadImg(file){
+        let upload = document.getElementById('upload');
+        let files = upload.files;
+        if (files.length >= 1){
+            for (let i = 0;i < files.length;i++){
+                KK.push(files[i])
+                }
+        }
+        console.log(KK);
+        }
+
+let admin = [];
+let la = $("#la");
+let nav = 0;
+let l = 0;
+let upload = document.getElementById('upload');
+    //隐藏了input:file样式后，点击头像就可以本地上传
+    $("#upload").on("change",function(){
+        let kk = upload.files;
+        console.log(kk);
+        if(kk.length > 1){
+            for (let i = 0;i < kk.length;i++){
+                let objUrl = getObjectURL(this.files[i]) ; //获取图片的路径，该路径不是图片在本地的路径
+                if (objUrl) {
+                    let adImg = "<div class='adg'>";
+                    let ad = "<div class='addImg' id='"+i+"'>";
+                    if(l === 0){
+                        nav = 0;
+                    }else {
+                        nav = nav+1;
+                    }
+                    let kk = "<img class='ca' src='"+objUrl+"'/>";
+                    let ka = "<img class='img1' id='"+nav+"' src='img/point.png' onclick='deleteImg(this.id)'/>";
+                    let ko = "</div>";
+                    la.append(adImg+ad+kk+ka+ko+ko);
+                    admin.push(objUrl);
+                    l = l+1;
+                    if(kk.length===1){
+
+
+                    }
+            }
+
+         }
+        }
+        if(kk.length===1){
+            let objUrl = getObjectURL(kk[0]) ; //获取图片的路径，该路径不是图片在本地的路径
+            if (objUrl) {
+                if(l === 0){
+                    nav = 0;
+                }else {
+                    nav = nav+1;
+                }
+                let adImg = "<div class='adg'>";
+                let ad = "<div class='addImg'>";
+                let kk = "<img class='ca' src='"+objUrl+"'/>";
+                let ka = "<img class='img1' id='"+nav+"' src='img/point.png' onclick='deleteImg(this.id)'/>";
+                let ko = "</div>";
+                la.append(adImg+ad+kk+ka+ko+ko);
+                admin.push(objUrl);
+                l = l+1;
+            }
+        }
+        console.log(admin);
+
+    });
+
+
+
+
+
+    //建立一個可存取到該file的url
+    function getObjectURL(file) {
+        var url = null ;
+        if (window.createObjectURL!=undefined) { // basic
+            url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+            url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+            url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+    }
+
+    function deleteImg(ID){
+        let fa =  document.getElementsByClassName("adg");
+        delete KK[ID];
+        console.log();
+            //删除元素 元素.parentNode.removeChild(元素);
+            if (fa[ID] != null){
+                while(fa[ID].hasChildNodes()) //当div下还存在子节点时 循环继续
+                {
+                    fa[ID].removeChild(fa[ID].firstChild);
+
+                }
+            }
+        console.log(ID);
+
+    }
+
+
+
+    function ad() {
+        let params = new FormData();
+        for (var i = 0; i < KK.length; i++) {
+            if (KK.length >= 1&&KK[i]!==undefined) {
+                params.append('img', KK[i], KK[i].name);
+            }
+        }
+        console.log(KK);
+        $.ajax({
+            url: "http://localhost:8085/Img/addImgs?log=pet",
+            type: 'post',
+            data: params,
+            dataType: 'json',
+            xhrFields: {withCredentials: true},
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function (info) {
+                ImgUrl = info.data;
+                console.log(info.data);
+                KK2 = ImgUrl.split(",");
+                console.log(KK2)
+            }
+        });
+    }
+
+</script>
+<style>
+    .s{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+    }
+    #message{
+        height: 200px;
+    }
+    .ss{
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+        height: 200px;
+    }
+    .a{
+        display: flex;
+
+    }
+</style>
+<div>
+    <div class="s">
+        <label for="pet_name">姓名</label><input type='text' name="pet_name" id="pet_name">
+        <label for="pet_sex">性别</label><input type='text' name="pet_sex" id="pet_sex">
+        <label for="pet_age">年龄</label><input type='text' name="pet_age" id="pet_age">
+        <label for="pet_category">类别</label><input type='text' name="pet_category" id="pet_category">
+        <label for="pet_varieties">品种</label><input type='text' name="pet_varieties" id="pet_varieties">
+        <label for="pet_vaccine">是否打疫苗</label><input type="text" name="message" id="pet_vaccine">
+        <label for="pet_sterilization">是否绝育</label><input type='text' name="pet_sterilization" id="pet_sterilization">
+        <label for="pet_insects">是否驱虫</label><input type="text" name="message" id="pet_insects">
+        <label for="pet_adopt_condition">领养条件</label><input type='text' name="pet_adopt_condition" id="pet_adopt_condition">
+        <label for="pet_picture">图片地址</label><input type='text' name="pet_picture" id="pet_picture">
+        <label for="pet_adopt_process">领养流程</label><input type='text' name="pet_adopt_process" id="pet_adopt_process">
+        <label for="pet_how_adopt">如何助养我</label><input type='text' name="pet_how_adopt" id="pet_how_adopt">
+        <label for="pet_push_date">宠物发布时间</label><input type='text' name="pet_push_date" id="pet_push_date">
+        <label for="pet_about_me">关于我的故事</label><textarea name="message" id="pet_about_me"></textarea>
+    </div>
+</div>
+<div class="ss">
+    <div style="flex:1">
+        <button class="a" onclick="test()">提交测试</button>
+    </div>
+    <div style="flex:1">
+        <button class="a">提交</button>
+    </div>
+</div>
+
+<script>
+    var data = {
+        "pet_name": "",
+        "pet_sex": "",
+        "pet_age": "",
+        "pet_category":"",
+        "pet_varieties": "",
+        "pet_vaccine": "",
+        "pet_sterilization": "",
+        "pet_insects": "",
+        "pet_adopt_condition": "",
+        "pet_picture": "",
+        "pet_adopt_process": "",
+        "pet_how_adopt": "",
+        "pet_push_date": "",
+        "pet_about_me": ""
+    };
+
+
+
+    function test() {
+        data.pet_name = $("#pet_name").val();
+        data.pet_age = $("#pet_age").val();
+        data.pet_sex = $("#pet_sex").val();
+        data.pet_category = $("#pet_category").val();
+        data.pet_varieties = $("#pet_varieties").val();
+        data.pet_vaccine = $("#pet_vaccine").val();
+        data.pet_sterilization = $("#pet_sterilization").val();
+        data.pet_insects = $("#pet_insects").val();
+        data.pet_adopt_condition = $("#pet_adopt_condition").val();
+        // data.pet_picture = $("#pet_picture").val();
+        data.pet_adopt_process = $("#pet_adopt_process").val();
+        data.pet_how_adopt = $("#pet_how_adopt").val();
+        data.pet_push_date = $("#pet_push_date").val();
+        data.pet_about_me = $("#pet_about_me").val();
+
+        $.ajax({
+            url:"http://localhost:8086/Test/addTest",
+            type:"POST",
+            data:JSON.stringify(data),
+            dataType:"json",
+            contentType:"application/json",
+            success:function (result) {
+                console.log(result);
+            }
+        })
+    }
+
+</script>
+</body>
+</html>

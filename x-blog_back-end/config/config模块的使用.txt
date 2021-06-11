@@ -1,0 +1,5 @@
+1.使用npm install config命令下载模块
+2.在项目的根目录下新建config文件夹
+3.在config文件夹下面新建default.json、development.json、production.json文件
+4.在项目中通过require方法，将模块进行导入
+5.使用模块内部提供的get方法获取配置信息
